@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 //To create obj in JVM spring container to connect -- default singleton
@@ -15,6 +17,14 @@ public class Home {
 	//POJO class
 	private String owner;
 	private int doorNo;
+	
+	//To connect internet provider in home 
+	@Autowired
+	private Xstream modem;
+	
+	
+	//private Jio modem2;
+	
 	public String getOwner() {
 		return owner;
 	}
@@ -28,7 +38,11 @@ public class Home {
 		this.doorNo = doorNo;
 	}
 	
+	//Accessing methods of Xstream file modem.switchOn();
 	public void connection() {
+		modem.switchOn1();
+		modem.switchOn2();
+	//	modem2.switchOn();
 		System.out.println("Connecting to internet!!");
 	}
 }
