@@ -18,9 +18,10 @@ public class Home {
 	private String owner;
 	private int doorNo;
 	
-	//To connect internet provider in home 
+	//To connect General internet provider in home 
 	@Autowired
-	private Xstream modem;
+	@Qualifier("AAA")
+	private InternetConnection modem;
 	
 	
 	//private Jio modem2;
@@ -38,7 +39,7 @@ public class Home {
 		this.doorNo = doorNo;
 	}
 	
-	//Accessing methods of Xstream file modem.switchOn();
+	//Accessing methods of InternetConnection file modem.switchOn();
 	public void connection() {
 		modem.switchOn1();
 		modem.switchOn2();
